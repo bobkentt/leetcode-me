@@ -10,7 +10,12 @@ type mystack struct {
     var len int
 }
 
-func (this *mystack) pop() (int, bool) {
+func (this *mystack) Init() {
+    len = 0
+    return this
+}
+
+func (this *mystack) Pop() (int, bool) {
     if len == 0 {
         return 0, false
     }
@@ -18,7 +23,7 @@ func (this *mystack) pop() (int, bool) {
 	return this.stack[len-1], true
 }
 
-func (this *mystack) push(value int) bool {
+func (this *mystack) Push(value int) bool {
     len++
 	stack[len] = value
     if len == 1 {
@@ -31,7 +36,7 @@ func (this *mystack) push(value int) bool {
     return true
 }
 
-func (this *mystack) getMin() (int, bool) {
+func (this *mystack) GetMin() (int, bool) {
     if len == 0 {
 		return 0, false
 	}
