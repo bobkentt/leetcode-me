@@ -6,6 +6,8 @@ import (
     "stack_queue"
 )
 
+
+// write test func here.
 func test_stack_queue() {
     s := stack_queue.mystack.Init()
     s.Push(3)
