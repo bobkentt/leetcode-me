@@ -3,24 +3,24 @@ package main
 import (
     "fmt"
 
-    "stack_queue"
+    stack "leetcode-me/stack_queue"
 )
 
 
-// write test func here.
+// test func here.
 func test_stack_queue() {
-    s := stack_queue.mystack.Init()
+    s := stack.Init()
     s.Push(3)
-    min := s.GetMin()
+    min , _ := s.GetMin()
     fmt.Printf("%d\n",min)
     s.Push(2)
-    min := s.GetMin()
+    min , _ = s.GetMin()
     fmt.Printf("%d\n",min)
     s.Push(4)
-    min := s.GetMin()
+    min , _ = s.GetMin()
     fmt.Printf("%d\n",min)
     s.Push(1)
-    min := s.GetMin()
+    min, _ = s.GetMin()
     fmt.Printf("%d\n",min)
 }
 

@@ -5,41 +5,42 @@ const (
 )
 
 type mystack struct {
-    var stack [MAX_STACK_LEN] int
-    var vmin [MAX_STACK_LEN] int
-    var len int
-}
-
-func (this *mystack) Init() {
-    len = 0
-    return this
+    stack[MAX_STACK_LEN] int
+    vmin[MAX_STACK_LEN] int
+    len int
 }
 
 func (this *mystack) Pop() (int, bool) {
-    if len == 0 {
+    if this.len == 0 {
         return 0, false
     }
-    len--
-	return this.stack[len-1], true
+    this.len--
+	return this.stack[this.len-1], true
 }
 
 func (this *mystack) Push(value int) bool {
-    len++
-	stack[len] = value
-    if len == 1 {
-        vmin[len] = value
-        return true
-	}
-	if this.vmin > value {
-		vmin[len] = value
-	}
+    if this.len == 0 {
+        this.vmin[this.len] = value
+	    this.stack[this.len] = value
+	} else {
+        if this.vmin[this.len] > value {
+            this.vmin[this.len + 1] = value
+        }
+        this.stack[this.len + 1] = value
+    }
+    this.len++
     return true
 }
 
 func (this *mystack) GetMin() (int, bool) {
-    if len == 0 {
+    if this.len == 0 {
 		return 0, false
 	}
-	return vmin[len], true
+	return this.vmin[this.len], true
 }
 
+func Init() *mystack {
+    return &mystack {
+        len : 0,
+    }
+}
